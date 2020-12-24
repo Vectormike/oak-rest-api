@@ -1,12 +1,18 @@
-import { opine, Router } from "https://deno.land/x/opine@1.0.0/mod.ts";
-// import { opine } from "./src/deps";
-import { Request, Response } from "https://deno.land/x/opine@1.0.0/src/types.ts";
-// import { Request, Response } from "./src/deps";
+import { opine } from "./mod";
+
+import BaseRouter from './src/routes';
 
 const app = opine();
 
-app.get("/", function(req:Request, res:Response) {
-  res.json("Hello World");
+// Init cors
+// app.use(opineCors());
+
+// Test API
+app.get("/", (req:Request, res:Response) =>{
+  res.json("Hello MF!");
 });
 
-app.listen(3000);
+// Add APIs
+app.use('/api', BaseRouter)
+
+app.listen(3000, () => console.log('Opine server running on port 3000!'));
