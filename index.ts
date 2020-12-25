@@ -1,18 +1,15 @@
-import { opine } from "./mod";
+import { Application } from "https://deno.land/x/oak/mod.ts";
+import UserRoutes from './src/routes/Users.ts';
 
-import BaseRouter from './src/routes';
+const app = new Application();
 
-const app = opine();
 
-// Init cors
-// app.use(opineCors());
+app.use(UserRoutes.routes())
+app.use(UserRoutes.allowedMethods())
 
-// Test API
-app.get("/", (req:Request, res:Response) =>{
-  res.json("Hello MF!");
-});
 
-// Add APIs
-app.use('/api', BaseRouter)
+//Start the Server
+const port = Number(3000)
 
-app.listen(3000, () => console.log('Opine server running on port 3000!'));
+await app.listen({port});
+  

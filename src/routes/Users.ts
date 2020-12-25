@@ -1,7 +1,8 @@
-import { Router } from "../../mod";
+import { Router } from "https://deno.land/x/oak/mod.ts";
+
 import { users } from "../database/Mock/UserSeeder";
 
-const router = Router()
+const router = new Router()
 
 
 
