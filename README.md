@@ -1,6 +1,6 @@
-## REST API built with Opine(Deno) and
+## REST API built with Oak(Deno) and MongoDB
 
-A basic example of how to configure and start an Opine server.
+A basic example of how to configure and start an Oak server.
 
 ## How to run this example
 
